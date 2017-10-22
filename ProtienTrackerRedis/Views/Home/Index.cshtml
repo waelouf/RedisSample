@@ -1,0 +1,14 @@
+﻿@model dynamic
+
+@{ 
+    ViewBag.Title = "Select User";
+
+}
+
+<h2>Select user</h2>
+@using (Html.BeginForm("Index", "Tracker", FormMethod.Post))
+{
+    @Html.DropDownList("userId", null, string.Empty, new { @onChange = "form.submit();" })
+}
+
+@Html.ActionLink("Create new user", "NewUser", "Users")

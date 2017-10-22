@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "NewUser";
+}
+
+<h2>Create User</h2>
+
+@using (Html.BeginForm("Save", "Users", FormMethod.Post))
+{
+    <p>User name:</p>
+    <input type="text" id="userName" name="userName" />
+    <p>Goal</p>
+    <input type="text" id="goal" name="goal" />
+
+    <input type="submit" value="Save" />
+}
