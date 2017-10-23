@@ -8,6 +8,8 @@ namespace ProtienTrackerRedis.Business.Utilities
 {
 	public static class Constans
 	{
-		public static readonly string HistoryListName = "urn:leaderboard";
+		public static readonly string LeaderboardListName = "urn:leaderboard";
+
+		public static readonly string HistoryListNamePrefix = "urn:history";
 	}
 }

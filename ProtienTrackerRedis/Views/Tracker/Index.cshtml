@@ -1,9 +1,10 @@
-﻿@model ProtienTrackerRedis.Models.User
+﻿@model ProtienTrackerRedis.Entities.User
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Protein Tracker</h2>
+
 <p>@Html.ActionLink(Model.Name, "Edit", "Users", new { userId = Model.Id }, null)</p>
     @using (Html.BeginForm("Index", "Tracker", FormMethod.Post))
     {

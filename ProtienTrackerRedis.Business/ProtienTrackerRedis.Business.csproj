@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LeaderboardBusiness.cs" />
+    <Compile Include="TrackerBusiness.cs" />
     <Compile Include="UsersBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Constans.cs" />
