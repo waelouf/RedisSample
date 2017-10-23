@@ -12,22 +12,47 @@ namespace ProtienTrackerRedis.Controllers
             return View();
         }
 
-		public ActionResult Save(string userName, int goal)
+		public ActionResult Save(string userName, int goal, long? userId)
 		{
+			User user = null;
+			int newId;
 			using (IRedisClient client = new RedisClient())
 			{
 				var userClient = client.As<User>();
-				var user = new User
+				if (userId.HasValue)
 				{
-					Name = userName,
-					Goal = goal,
-					Id = userClient.GetNextSequence()
-				};
+					user = userClient.GetById(userId.Value);
+				}
+				else
+				{
+					user = new User
+					{
+						
+						Id = userClient.GetNextSequence()
+					};
+				}
 
-				var userId = userClient.Store(user);
+				user.Name = userName;
+				user.Goal = goal;
 
-				return RedirectToAction("Index", "Home");
+				userClient.Store(user);
+
+				userId = user.Id;
 			}
+
+			return RedirectToAction("Index", "Tracker", new { userId });
 		}
-    }
+
+		public ActionResult Edit(long userId)
+		{
+			User user = null;
+			using (IRedisClient client = new RedisClient())
+			{
+				var userClient = client.As<User>();
+				user = userClient.GetById(userId);
+			}
+
+			return View("NewUser", user);
+		}
+	}
 }

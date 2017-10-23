@@ -3,22 +3,29 @@
     ViewBag.Title = "Index";
 }
 
-@if (Model != null)
-{
-    <h2>Protein Tracker</h2>
-    <p>@Model.Name</p>
+<h2>Protein Tracker</h2>
+<p>@Html.ActionLink(Model.Name, "Edit", "Users", new { userId = Model.Id }, null)</p>
     @using (Html.BeginForm("Index", "Tracker", FormMethod.Post))
     {
-        <p>Amount</p>
-        <input type="text" name="Amount" />
-        <input type="submit" name="Enter" />
-        <input type="hidden" name="userId" value="@Model.Id" />
+<p>Amount</p>
+<input type="text" name="Amount" />
+<input type="submit" name="Enter" />
+<input type="hidden" name="userId" value="@Model.Id" />
     }
 
-    <p>
-        Total: @Model.Total
-    </p>
-    <p>
-        Goal: @Model.Goal
-    </p>
-}
+<p>
+    Total: @Model.Total
+</p>
+<p>
+    Goal: @Model.Goal
+</p>
+
+@Html.ActionLink("Leaderboard", "Index", "Leaderboard")
+
+<div>
+    <p>History</p>
+    @foreach(var item in ViewBag.HistoryItems)
+    {
+        <p>Amount Added: @item</p>
+    }
+</div>

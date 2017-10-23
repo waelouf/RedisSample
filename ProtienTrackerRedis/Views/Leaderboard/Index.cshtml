@@ -1,0 +1,30 @@
+﻿@model IEnumerable<KeyValuePair<string, double>>
+@{
+    ViewBag.Title = "Leaderboard";
+}
+
+<h2>Leaderboard</h2>
+
+<table>
+    <thead>
+        <tr>
+            <td>
+                User
+            </td>
+            <td>
+                Score
+            </td>
+        </tr>
+    </thead>
+    @foreach(var leader in Model)
+    {
+        <tr>
+            <td>
+                @leader.Key
+            </td>
+            <td>
+                @leader.Value
+            </td>
+        </tr>
+    }
+</table>
