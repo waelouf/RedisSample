@@ -15,7 +15,7 @@ namespace ProtienTrackerRedis.Controllers
 		public ActionResult Save(string userName, int goal, long? userId)
 		{
 			User user = null;
-			int newId;
+			
 			using (IRedisClient client = new RedisClient())
 			{
 				var userClient = client.As<User>();

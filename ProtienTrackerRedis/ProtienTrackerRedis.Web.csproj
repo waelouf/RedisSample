@@ -219,6 +219,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProtienTrackerRedis.Business\ProtienTrackerRedis.Business.csproj">
+      <Project>{03049f34-3fa2-40c8-a2b8-68626d0a2ce7}</Project>
+      <Name>ProtienTrackerRedis.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtienTrackerRedis.Entities\ProtienTrackerRedis.Entities.csproj">
+      <Project>{727acef1-0925-4f56-841d-75603836f749}</Project>
+      <Name>ProtienTrackerRedis.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
